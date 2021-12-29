@@ -1,85 +1,104 @@
-nav{
-    display: flex;
+* {
+  margin: 0;
 }
-nav>.position0{
-    flex: none;width: 10%;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top;*/
-    padding: 5px;
+/**
+ * 通常 Body 最上面
+ * 然後 基礎文字大小 20px
+ * 在此定義
+ * 然後 基礎大小的幾倍 請用 em
+ */
+body {
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
 }
-nav>.position00{
-    flex: auto;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top;
-    padding: 5px; */
+
+/**
+ * Navigation
+ */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
 }
-nav>.position1{
-    flex: none;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top; */
-    padding: 5px;
+.navigation--left {
+  font-weight: bold;
 }
-nav>.position2{
-    flex: none;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top; */
-    padding: 5px;
+.navigation--right {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  column-gap: 8px;
+
+  align-items: center;
 }
-nav>.position3{
-    flex: none;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top; */
-    padding: 5px;
+.navigation--right > div {
+  padding: 5px;
+  font-size: 1em;
 }
-nav>.position4{
-    flex: none;
-    font-size: 20px;
-    /* display: inline-block;
-    vertical-align: top; */
-    padding: 5px;
+
+.menu--button {
+  display: none;
 }
-.head{
-    font-size: 40px;
-    text-align: center;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    background-color: rgb(255, 239, 239);
-    margin-bottom: 20px;
+
+/** Header */
+.head {
+  font-size: 2em; /** 等同 基礎文字 * 2  */
+  background-color: rgb(255, 239, 239);
+  height: 300px;
+
+  /** 至中最快方式 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-body{
-    margin: 0px;
+
+.content {
+  border: 1px solid blue;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 20px;
 }
-.con{
-    display: flex;
-    flex-wrap: wrap;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid blue;
-    justify-content: space-between;
+.content > div {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, max-content);
 }
-.img{
-    display: flex;
-    flex-wrap: wrap;
-    flex:1;
-    width: 270px;
-    margin: 10px 10px 0px 10px;
-    padding-bottom: 0px;
+
+.img {
+  width: 100%;
 }
-.titlename{
-    text-align: center;
-    background-color: aquamarine;
-    width: 270px;
-    margin: 0px 10px 10px 10px;
-    padding: 5px 0px 5px 0px;
+
+.titlename {
+  text-align: center;
+  background-color: aquamarine;
+  width: 100%;
 }
-/* @media screen and (min-width:600px){
-    .con{
-        width: 90%;
-    }
-} */
+
+@media (max-width: 1200px) and (min-width: 600px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+    max-width: 90%;
+  }
+
+  .navigation--right > div {
+    display: none;
+  }
+
+  .menu--button {
+    display: block;
+  }
+}
