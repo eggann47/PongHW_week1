@@ -29,6 +29,9 @@ body {
     padding: 5px;
     font-size: 1em;
 }
+.navigation--button {
+    display: none;
+}
 
 .head {
     font-size: 2em;
@@ -71,5 +74,22 @@ body {
     .content{
         grid-template-columns: repeat(2, 1fr);
         max-width: 90%;
+    }
+}
+
+@media (max-width: 600px){
+    .content{
+        grid-template-columns: 1fr;
+        max-width: 90%;
+    }
+
+    .navigation--right{
+        display: none;
+    }
+
+    .navigation--button {
+        display: block;
+        float: right;
+        font-size: 20px;
     }
 }
